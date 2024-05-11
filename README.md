@@ -52,7 +52,7 @@ git switch dcnm_fabric_ipfm
 ```bash
 cd $HOME
 python -m venv py
-source py/bin/activate
+source $HOME/py/bin/activate
 ```
 
 3. Install ansible in this environment
@@ -66,19 +66,17 @@ pip install ansible
 ```bash
 cd $HOME
 git clone https://github.com/allenrobel/ndfc-ipfm-fabric.git
-cd ndfc-ipfm-fabric
+cd $HOME/ndfc-ipfm-fabric
 ```
 
 5. Edit the ./inventory/hosts/hosts file to modify the ``ansible_host`` to point to your NDFC controller IP address.
+
 ```bash
 vim $HOME/ndfc-ipfm-fabric/inventory/hosts/hosts
 ```
 
 The file includes everything you need to modify:
 
-```bash
-$HOME/ndfc-ipfm-fabric/inventory/hosts/hosts
-```
 
 ```yaml
 ---
@@ -91,7 +89,7 @@ ndfc:
 6. Edit the ./inventory/group_vars/ndfc/params.yaml file to add your NDFC controller username/password, nxos switch usernames/passwords, and nxos switch IP addresses.  The file included includes everything you need to modify.
 
 ```bash
-$HOME/ndfc-ipfm-fabric/group_vars/ndfc/params.yaml
+vim $HOME/ndfc-ipfm-fabric/group_vars/ndfc/params.yaml
 ```
 
 ```yaml
