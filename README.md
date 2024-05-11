@@ -27,7 +27,7 @@ git switch dcnm_fabric_ipfm
 3. Install this repo and modify for your NDFC controller and NX-OS switches.  See steps 5 and 6 further below.
 
 
-If you're starting from scratch, then something like this will get you mostly there, assuming a ``bash`` environment. Modify to taste, and as needed for other environments.
+If you're starting from scratch, then something like the steps below will get you mostly there, assuming a ``bash`` environment. Modify to taste, and as needed for other environments.
 
 1. Clone the Ansible, Ansible Netcommon, and DCNM Collections repos.
 
