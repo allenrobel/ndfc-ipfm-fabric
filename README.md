@@ -43,7 +43,7 @@ cd $ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco
 git clone https://github.com/CiscoDevNet/ansible-dcnm.git
 mv ansible-dcnm dcnm
 cd dcnm
-# switch to the dcnm_fabric_ipfm branch (will not be needed one this is merged in a few weeks...)
+# switch to the dcnm_fabric_ipfm branch (will not be needed once this is merged in a few weeks...)
 git switch dcnm_fabric_ipfm
 ```
 
