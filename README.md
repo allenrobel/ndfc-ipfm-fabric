@@ -6,6 +6,8 @@ You will want (for now, as of 2024-05-10) to switch into the dcnm_fabric_ipfm br
 
 If you're already familiar with Ansible and it's installed and set up already, then the following should work:
 
+1. Install the DCNM Collection repo
+
 ```bash
 cd $ANSIBLE_COLLECTIONS_PATH/ansible_collections
 # If not already present...
@@ -15,7 +17,17 @@ git clone https://github.com/CiscoDevNet/ansible-dcnm.git
 mv ansible-dcnm dcnm
 ```
 
-If you're starting from scratch, then something like this will get you mostly there, assuming ``bash`` environment. Modify to taste, and as needed for other environments.
+2. Switch to the dcnm_fabric_ipfm branch (this will not be needed once this branch is merged into the main branch in a few weeks).
+
+```bash
+cd $ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco/dcnm
+git switch dcnm_fabric_ipfm
+```
+
+3. Install this repo and modify for your NDFC controller and NX-OS switches.  See steps 5 and 6 further below.
+
+
+If you're starting from scratch, then something like this will get you mostly there, assuming a ``bash`` environment. Modify to taste, and as needed for other environments.
 
 1. Clone the Ansible, Ansible Netcommon, and DCNM Collections repos.
 
@@ -30,6 +42,9 @@ mkdir $ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco
 cd $ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco
 git clone https://github.com/CiscoDevNet/ansible-dcnm.git
 mv ansible-dcnm dcnm
+cd dcnm
+# switch to the dcnm_fabric_ipfm branch (will not be needed one this is merged in a few weeks...)
+git switch dcnm_fabric_ipfm
 ```
 
 2. Create and activate a python virtual environment.
