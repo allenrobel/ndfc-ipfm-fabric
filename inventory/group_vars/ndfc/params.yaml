@@ -1,0 +1,15 @@
+ansible_connection: ansible.netcommon.httpapi
+ansible_network_os: cisco.dcnm.dcnm
+ansible_httpapi_validate_certs: no
+ansible_httpapi_use_ssl: yes
+# username for NDFC controller
+ansible_user: admin
+# password for NDFC controller
+ansible_password: myAnsiblePassword
+nxos_username: admin
+nxos_password: myNxosPassword
+nxos_auth_protocol: MD5
+leaf_1_ipv4: 10.1.2.1
+leaf_2_ipv4: 10.1.2.2
+spine_1_ipv4: 10.1.3.1
+spine_2_ipv4: 10.1.3.2

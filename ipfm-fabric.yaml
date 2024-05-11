@@ -1,0 +1,95 @@
+---
+-   hosts: ndfc
+    check_mode: false
+    gather_facts: false
+    tasks:
+    - name: Create IPFM Fabric
+      cisco.dcnm.dcnm_fabric:
+        state: merged
+        config:
+        -   FABRIC_NAME: IPFM
+            FABRIC_TYPE: IPFM
+      register: result
+    - debug:
+        var: result
+
+    - name: Merge switches into Fabric
+      cisco.dcnm.dcnm_inventory:
+        fabric: IPFM
+        state: merged
+        config:
+        - seed_ip: "{{ leaf_1_ipv4}}"
+          auth_proto: "{{ nxos_auth_protocol }}"
+          user_name: "{{ nxos_username }}"
+          password: "{{ nxos_password }}"
+          max_hops: 0
+          role: leaf
+          preserve_config: False
+        - seed_ip: "{{ leaf_2_ipv4}}"
+          auth_proto: "{{ nxos_auth_protocol }}"
+          user_name: "{{ nxos_username }}"
+          password: "{{ nxos_password }}"
+          max_hops: 0
+          role: leaf
+          preserve_config: False
+        - seed_ip: "{{ spine_1_ipv4}}"
+          auth_proto: "{{ nxos_auth_protocol }}"
+          user_name: "{{ nxos_username }}"
+          password: "{{ nxos_password }}"
+          max_hops: 0
+          role: spine
+          preserve_config: False
+        - seed_ip: "{{ spine_2_ipv4}}"
+          auth_proto: "{{ nxos_auth_protocol }}"
+          user_name: "{{ nxos_username }}"
+          password: "{{ nxos_password }}"
+          max_hops: 0
+          role: spine
+          preserve_config: False
+      register: result
+    - debug:
+        var: result
+
+
+    # - name: Update IPFM Fabric
+    #   cisco.dcnm.dcnm_fabric:
+    #     state: merged
+    #     config:
+    #     -   FABRIC_NAME: IPFM_Fabric
+    #         FABRIC_TYPE: IPFM
+    #         FABRIC_MTU: 1500
+    #         EXTRA_CONF_LEAF: |
+    #           interface Ethernet1/1-16
+    #             description managed by NDFC
+    #   register: result
+    # - debug:
+    #     var: result
+
+    # - name: Return IPFM Fabric to default configuration.
+    #   cisco.dcnm.dcnm_fabric:
+    #     state: replaced
+    #     config:
+    #     -   FABRIC_NAME: IPFM_Fabric
+    #         FABRIC_TYPE: IPFM
+    #         DEPLOY: false
+    #   register: result
+    # - debug:
+    #     var: result
+
+    # - name: Query the IPFM Fabric.
+    #   cisco.dcnm.dcnm_fabric:
+    #     state: query
+    #     config:
+    #     -   FABRIC_NAME: IPFM_Fabric
+    #   register: result
+    # - debug:
+    #     var: result
+
+    # - name: Delete the IPFM Fabric.
+    #   cisco.dcnm.dcnm_fabric:
+    #     state: deleted
+    #     config:
+    #     -   FABRIC_NAME: IPFM_Fabric
+    #   register: result
+    # - debug:
+    #     var: result
