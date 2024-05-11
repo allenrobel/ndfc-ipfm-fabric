@@ -1,6 +1,6 @@
 # NDFC Ansible - IPFM Fabric Example
 
-This repo includes a very basic example for building an IP Fabric for Media fabric using the DCNN Ansible Collection.
+This repo includes a very basic example for building an IP Fabric for Media fabric using the DCNM Ansible Collection.
 
 You will want (for now, as of 2024-05-10) to switch into the dcnm_fabric_ipfm branch.  I've opened a PR to merge IPFM support into the dcnm_fabric module, but it will take a couple weeks for this to happen.
 
